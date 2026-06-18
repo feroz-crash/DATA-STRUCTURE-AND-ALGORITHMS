@@ -12,7 +12,7 @@ def selection_sort(arr):
 
     return arr
 # Example usage
-def main(): 
+def main():
     n=int(input("Enter the number of elements: "))
     arr = list(map(int, input("Enter numbers: ").split()))[:n]
     sorted_arr = selection_sort(arr)
