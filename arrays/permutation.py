@@ -10,7 +10,8 @@ class solution:
                 p_copy=p.copy()
                 p_copy.insert(i, nums[0])
                 res.append(p_copy)
-        return res
+        return sorted(res)
+    
 list1 = [1, 2, 3]
 sol = solution()
 print(sol.permute(list1))

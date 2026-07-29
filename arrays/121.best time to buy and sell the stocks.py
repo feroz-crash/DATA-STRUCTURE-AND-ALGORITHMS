@@ -2,27 +2,27 @@ from typing import List
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         # l = buy day (left pointer), r = sell day (right pointer)
-        l, r = 0, 0
+        buy,sell= 0, 0
         maxp = 0  # ab tak ka best profit store karega
         n = len(prices)
 
-        while r < n:
+        while sell < n:
             # Step 1: agar aaj ka price left(buy) wale price se zyada hai,
             # toh profit calculate karo
-            if prices[r] > prices[l]:
-                profit = prices[r] - prices[l]
+            if prices[sell] > prices[buy]:
+                profit = prices[sell] - prices[buy]
 
                 # Step 2: agar ye profit ab tak ke best se zyada hai, update karo
                 if maxp < profit:
                     maxp = profit
             else:
-                # Step 3: agar price gir gaya (prices[r] <= prices[l]),
-                # matlab ye purana "l" ab sabse sasta nahi raha
-                # isliye left pointer ko yahin move kardo (naya potential buy point)
-                l = r
+                # Step 3: agar price gir gaya (prices[sell] <= prices[buy]),
+                # matlab ye purana "buy" ab sabse sasta nahi raha
+                # isliye buy pointer ko yahin move kardo (naya potential buy point)
+                buy = sell
 
             # Step 4: har iteration mein right pointer aage badhao
-            r += 1
+            sell += 1
 
         return maxp
 
