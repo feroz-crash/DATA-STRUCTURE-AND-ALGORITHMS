@@ -11,7 +11,7 @@ class linkedlist:
             self.head=new_node
             return
         current=self.head
-        while current.next:
+        while current.next is not None:
             current=current.next
         current.next=new_node
     def printlist(self):
